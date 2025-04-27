@@ -137,12 +137,7 @@
 // Matches the next sibling only.
 // 4. General sibling combinator (~): h2 ~ p - selects all p elements that follow an h2 element OR Matches all siblings after..
 
-
-
-
-
 // Example:
-
 
 // /* Descendant combinator */
 // .container p {
@@ -172,21 +167,23 @@
 // div > p selects only the direct children.
 
 // 1. What is the difference between the descendant combinator and the child combinator?
-
-// The descendant combinator (`) selects all elements that are descendants of the specified element, regardless of their nesting level. The child combinator (>`) selects only direct children of the specified element.
+// The descendant combinator (`) selects all elements that are descendants of the specified element, regardless of their nesting level.
+//  The child combinator (>`) selects only direct children of the specified element.
 
 // 2. How would you use the adjacent sibling combinator to style a paragraph that follows a heading?
-
-// You would use the adjacent sibling combinator (+) like this: h2 + p { styles here }. This would select the first paragraph element that immediately follows an h2 heading element.
+// You would use the adjacent sibling combinator (+) like this: h2 + p { styles here }. This would select the first paragraph element 
+// that immediately follows an h2 heading element.
 
 // 3. Can you explain the difference between the adjacent sibling combinator and the general sibling combinator?
 
-// The adjacent sibling combinator (+) selects only the first element that immediately follows the specified element. The general sibling combinator (~) selects all elements that follow the specified element, regardless of their position.
+// The adjacent sibling combinator (+) selects only the first element that immediately follows the specified element. The general 
+// sibling combinator (~) selects all elements that follow the specified element, regardless of their position.
 
 // 4. How would you use combinators to style a specific element based on its position in the HTML document?
 
-// You would use a combination of combinators and selectors to target the specific element. For example, .container > h2 + p { styles here } would select the first paragraph element that immediately follows an h2 element, which is a direct child of an element with the class container.
-
+// You would use a combination of combinators and selectors to target the specific element. 
+// For example, .container > h2 + p { styles here } would select the first paragraph element that immediately follows an h2 element,
+// which is a direct child of an element with the class container.
 
 
 
@@ -197,11 +194,13 @@
 // <h1 style="color:red;">
 
 // External styles are written in a separate .css file and linked with <link>.
-// We use inline styles only for testing or small changes, but in real projects, external stylesheets are better for reusability and clean code.
+// We use inline styles only for testing or small changes, but in real projects, external stylesheets are better 
+// for reusability and clean code.
 
 
 // 💬 Follow-up: Can inline styles override external CSS?
-// Answer: Yes sir, inline styles have higher specificity, so they override external or internal styles unless !important is used.
+// Answer: Yes sir, inline styles have higher specificity, so they override external or internal styles unless 
+// !important is used.
 
 
 
