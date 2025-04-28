@@ -1,0 +1,73 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    width: 100%;
+    border: 5px solid red;
+}
+
+.child-container{
+    border: 2px solid black;
+    width: 70%;
+
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 1rem
+}
+header nav ul{
+    display: flex;
+    justify-items: space-between;
+    align-items: center;
+    list-style: none;
+    gap: 2rem;
+    
+}
+
+.header-image{
+    width: 6rem;
+    height: 5rem;
+}
+
+header .header-button{
+    padding: 0.5rem 1.2rem; 
+    background: transparent linear-gradient(90deg, #419CF8 0%, #1E3EBC 100%) 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    color: white;
+    border:none
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    row-gap: 1.5rem;
+    border: 2px solid yellow;
+    
+}
+section .heading {
+   text-align: center;
+    font-size: 1.5rem;
+    /* font: normal normal 900 65px/78px Avenir LT Std; */
+    width: 90%;
+}
+section .heading span{
+border-bottom: 5px solid #419CF8;
+}
+
+section div p{
+    /* font: normal normal 300 18px/30px Avenir; */
+    text-align: center;
+    font-size: 0.8rem;
+
+}
+
