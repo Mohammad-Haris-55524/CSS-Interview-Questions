@@ -142,13 +142,3 @@
 // Follow-up:
 // Can we use both together? 👉 Yes! Use Grid for page layout and Flexbox inside components for finer alignment.
 
-
-let students = ["ALI" , "HARIS", "SAQIB" , "ADIL"]; // lenght = 4, Index = n-1 ==> 4 - 1 = 3
-console.log(typeof students, students);
-console.log("std arr lenght: " , students.length); // 4 
-console.log("std arr lenght (method 1): " , students[students.length-2]); //[iss bracket my index no ata hy]  uts method 2 is below
-const index = students.length-1;
-console.log("std arr lenght (method 2): " , students[index]);
-students[1] = "musa";
-students[0] = "ALI HAIDER";
-console.log(students);
