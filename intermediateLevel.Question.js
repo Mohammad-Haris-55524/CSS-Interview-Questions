@@ -142,3 +142,51 @@
 // Follow-up:
 // Can we use both together? 👉 Yes! Use Grid for page layout and Flexbox inside components for finer alignment.
 
+
+
+// 🔷 What is :root in CSS?
+// :root is a CSS pseudo-class selector that targets the highest-level parent element in the HTML document — basically the <html> tag.
+// You can think of it as “the top-level container for your whole web page”.
+
+// 🔶 Why do we use :root?
+// We mostly use :root to define CSS variables (also called custom properties) so that we can reuse values like colors, font sizes, spacing, etc., throughout our CSS.
+
+// ✅ Example:
+// :root {
+//     --primary-color: #1E3EBC;
+//     --secondary-color: #419CF8;
+//     --font-size-small: 14px;
+//   }
+  
+//   button {
+//     background-color: var(--primary-color);
+//     color: white;
+//     font-size: var(--font-size-small);
+//   }
+  
+// In this example:
+
+// We defined variables inside :root.
+// Now we can reuse these variables (--primary-color, etc.) anywhere in our CSS.
+// This makes our code cleaner, more consistent, and easier to update.
+
+
+// 🧠 What might the interviewer ask?
+// ❓ Basic questions:
+// What is :root in CSS and where is it used?
+
+// What’s the difference between :root and html?
+// Answer: Both target the same element, but :root has higher specificity.
+
+// Why do we define variables in :root and not elsewhere?
+// Because variables in :root are globally accessible across the entire stylesheet.
+
+
+
+// 🔁 Follow-up Questions You Might Get:
+// | Question                                                          | What they’re checking |
+// |----------                                                         |------------------------|
+// | How do you override a variable declared in `:root`?               | Knowledge of **CSS variable scope** |
+// | Can we use variables inside media queries?                        | Yes! This checks understanding of responsive design |
+// | What's the advantage of using CSS variables vs hardcoding values? | Code maintainability and reusability |
+// | Can `:root` variables be changed with JavaScript?                 | Yes, and it’s often used for **themes** (e.g., dark/light mode) |

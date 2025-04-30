@@ -3,6 +3,12 @@
     margin: 0;
     box-sizing: border-box;
 }
+:root{
+    --primary-color: red;
+    --secondary-color:yellow;
+    --section-heading: 1.5rem;
+    --section-para: 0.7rem; 
+}
 .container{
     display: flex;
     flex-direction: column;
@@ -23,8 +29,9 @@ header{
     justify-content: space-around;
     align-items: center;
     /* margin: 0 1rem; */
-    border: 2px solid black
-}
+    border: 5px solid black
+    
+}   
 header nav ul{
     display: flex;
     justify-items: space-between;
@@ -44,7 +51,7 @@ header .header-button{
     background: transparent linear-gradient(90deg, #419CF8 0%, #1E3EBC 100%) 0% 0% no-repeat padding-box;
     border-radius: 5px;
     color: white;
-    border:none;
+    border: 1px solid transparent
 
 }
 header .header-button:hover{
@@ -73,10 +80,9 @@ section .heading {
     border: 2px solid black;
     margin: auto;
    text-align: center;
-    font-size: 1.5rem;
+    font-size: var(--section-heading);
     /* font: normal normal 900 65px/78px Avenir LT Std; */
     width: 80%;
-    /* font-weight: 900; */
 }
 section .heading span{
 border-bottom: 3px solid #419CF8;
@@ -92,7 +98,7 @@ border: 2px solid black;
 section div p{
     /* font: normal normal 300 18px/30px Avenir; */
     text-align: center;
-    font-size: 0.7rem;
+    font-size: var(--section-para);
     line-height: 1rem;
 
 }
@@ -112,7 +118,7 @@ section div p{
     .icons-section {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    /* background-color: #1E3EBC; */
+    background-color: #1E3EBC;
       /* gap: 0.2rem; */
     }
   }
@@ -121,7 +127,7 @@ section div p{
   @media screen and (max-width: 995px) {
     .icons-section {
     grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    /* background-color: red; */
+    background-color: red;
 }
   }
   
@@ -173,9 +179,7 @@ padding: 0.6rem 1.8rem;
 background: transparent linear-gradient(90deg, #419CF8 0%, #1E3EBC 100%) 0% 0% no-repeat padding-box;
 border-radius: 5px;
 color: white;
-border:none;
-background: red;
-
+border: 1px solid transparent
 }
 section .header-button:hover{
 background: transparent linear-gradient(90deg, #ffffff 0%, #ffffff 100%) 0% 0% no-repeat padding-box;
@@ -193,3 +197,4 @@ section .header-button > p{
      font-weight: 200;
      opacity: 0.8;
 }
+

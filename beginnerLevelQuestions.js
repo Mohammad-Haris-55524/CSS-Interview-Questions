@@ -45,10 +45,12 @@
 // This means the card will have 20px space outside (margin), and 10px space inside (padding).
 
 // 💬 Follow-up: Can margin be negative?
-// Answer: Yes sir, margin can be negative. It will pull the element closer to other elements or even overlap them. But it should be used carefully to avoid layout issues.
+// Answer: Yes sir, margin can be negative. It will pull the element closer to other elements or even overlap them. But it should be used
+//  carefully to avoid layout issues.
 
 // 💬 Follow-up: What is margin collapsing?
-// Answer: When two vertical margins meet, like between two paragraphs, the bigger margin wins instead of adding them. That’s called margin collapsing.
+// Answer: When two vertical margins meet, like between two paragraphs, the bigger margin wins instead of adding them. That’s called 
+// margin collapsing.
 
 
   
@@ -60,7 +62,8 @@
 // opacity: 0 – Makes the element fully transparent, but it’s still there and interactive.
 
 // 💬 Follow-up: Can we interact with an element that has opacity: 0?
-// Answer: Yes sir, the element is still there. You can still click or focus on it. To make it fully inactive, we can also use pointer-events: none.
+// Answer: Yes sir, the element is still there. You can still click or focus on it. To make it fully inactive, we can also use 
+// pointer-events: none.
 
 // 💬 Follow-up: Which one is better for animation?
 // Answer: opacity is best for animation because it allows smooth transitions. display: none cannot be animated directly.
@@ -135,7 +138,7 @@
 // 2. Child combinator (>): div > p - selects all p elements that are direct children of div elements.
 // 3. Adjacent sibling combinator (+): h2 + p - selects the first p element that immediately follows an h2 element OR 
 // Matches the next sibling only.
-// 4. General sibling combinator (~): h2 ~ p - selects all p elements that follow an h2 element OR Matches all siblings after..
+// 4. General sibling combinator (~): h2 ~ p - selects all p elements that follow an h2 element OR Matches all siblings after.
 
 // Example:
 
@@ -250,3 +253,125 @@
 // :nth-of-type(2) selects the second specific tag among siblings.
 
 
+// let a //declaration
+// a = 4 //initiliazation
+
+//This is call redelaration due to block scope of let and const but it can happen in var 
+// let b = 10;
+// let b = 5;
+
+//Cannot redeclare constant variable like const due to block scope
+// const b = 10;
+// const b = 5;
+
+// Redeclaration and Reinitialization can happen in var keywards
+
+// Redeclaration
+// var c = 10;
+// var c = 5;
+// console.log(c)
+// // Reinitialization 
+// c = 533;
+// console.log(c)
+
+// yaad rakho setTimeout ho yah phr clear timeout ho yah dono valye return nahe kar skty balky yah sirf timerId return karty han nichey
+// example dekh lo yah fetch sy aya howa response return nahe karein gy hamey.
+// Timer Id kia hote hay ? 
+// let apiResponse1 = setTimeout(()=>{
+// fetch('https://fakestoreapi.com/products').then((response)=>response.json()).then((data)=>data).catch((err)=>console.log(err))
+// console.log("I am from 1")
+// },5000)
+// console.log("Timer Id:", apiResponse1)
+
+// let apiResponse2= setTimeout(()=>{
+//     fetch('https://fakestoreapi.com/products').then((response)=>response.json()).then((data)=>data).catch((err)=>console.log(err))
+//     console.log("I am from 2")  
+// },)
+    
+//     console.log("Timer Id: ",apiResponse2)
+
+//     let apiResponse3 = setTimeout(()=>{
+//         fetch('https://fakestoreapi.com/products').then((response)=>response.json()).then((data)=>data).catch((err)=>console.log(err))
+// console.log("I am from 3")
+       
+//     },1000)
+//     console.log("Timer Id:", apiResponse3)
+// setTimeout(fn,delay)
+
+// ----------------------------------------------------------- Set Interval ------------------------------------------------------------
+
+// let timerId = setInterval(greet,5000)
+// function greet(){
+//     console.log(`Hello ${name}` )
+// }
+// console.log(timerId)
+// clearTimeout(timerId)
+
+// -----------------------------------------------------------------------------------------------------------------------------------
+// setTimeout	Delay showing a modal or toast message
+// setInterval	Update UI like a clock or countdown
+// -----------------------------------------------------------------------------------------------------------------------------------
+// ✅ Are setTimeout and setInterval Higher-Order Functions?
+// ✔️ Yes, both setTimeout and setInterval are higher-order functions.
+
+// 🧠 Why?
+// A higher-order function is:
+// A function that takes another function as an argument or returns a function.
+
+// ✅ Both setTimeout and setInterval take a function as their first argument — this makes them higher-order functions.
+
+// ✅ Are the functions we pass to them called callbacks?
+// ✔️ Yes, the function you pass (like () => {}) is called a callback function.
+// -----------------------------------------------------------------------------------------------------------------------------------
+
+// ------------------------------------------------------ CALLBACKS FUNCTION---------------------------------------------------------
+
+// const msg1 = (msg2)=>{
+//     setTimeout(function(){
+//         console.log("hello");
+//         msg2()
+//     },3000);
+    
+// }
+
+// const msg2 = ()=>{
+//     console.log("haris");
+// }
+//  msg1(msg2);
+
+// Step 1: Function that accepts a callback
+// function fetchProducts(callback) {
+// fetch('https://fakestoreapi.com/products')
+// .then((response)=> response.json())
+// .then((data)=> callback(null,data))
+// .catch((err)=> callback(null,err))
+// }
+
+// fetchProducts((err,data)=>{
+//     if(err){
+//         console.log("Request failed", err)
+//     }
+//     else{
+//         console.log("Sucessfull request", data)
+//     }
+// })
+
+
+function greeting(name, callback) {
+setTimeout(()=>{
+const greetingMessage = `Hello! My name is ${name}` 
+callback(greetingMessage)
+},3000)
+}
+
+// greeting((data)=>{
+// console.log(data)
+// })
+greeting("Haris",(data)=>{
+    console.log(data)
+})
+
+
+  
+//  const id = setTimeout(() => console.log("Hi"), 2000);
+// clearTimeout(id); // will cancel it
