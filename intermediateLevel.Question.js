@@ -189,4 +189,121 @@
 // | How do you override a variable declared in `:root`?               | Knowledge of **CSS variable scope** |
 // | Can we use variables inside media queries?                        | Yes! This checks understanding of responsive design |
 // | What's the advantage of using CSS variables vs hardcoding values? | Code maintainability and reusability |
-// | Can `:root` variables be changed with JavaScript?                 | Yes, and it’s often used for **themes** (e.g., dark/light mode) |
+// | Can `:root` variables be changed with JavaScript?                 | Yes, and it’s often used for **themes** (e.g., dark/light mode) 
+
+
+
+
+// ✅ Q6) What are the key principles of CSS performance optimization?
+
+// Answer
+// Avoid deeply nested selectors – Browsers parse selectors right to left.
+// Minimize use of universal (*) and overly complex selectors
+// Use class selectors instead of tags/IDs – more maintainable and performant
+// Minify and compress CSS
+// Use shorthand properties
+// Load critical CSS inline for above-the-fold content
+// Avoid unnecessary CSS (unused styles)
+// Prefer GPU-accelerated animations (like transform, opacity)
+
+
+// Follow-up: Why is transform preferred for animations?
+// 👉 It avoids triggering layout or paint operations, making it smoother and faster (hardware-accelerated).
+
+
+
+
+// ✅ Q7) What is the purpose of a media query, and how do they help in responsive design?
+
+// Answer:
+// Media queries allow you to apply CSS rules based on screen size, orientation, or device characteristics.
+// They are key for responsive design, helping your site adapt across devices.
+
+// Example:
+// @media (max-width: 768px) {
+//     .container {
+//       flex-direction: column;
+//     }
+//   }
+
+//   Types of Media Queries:
+//   1) max-width, min-width
+//   2) orientation
+//   3) resolution
+  
+//   Follow-up: What's mobile-first design?
+//   👉 Start with styles for small screens and enhance for larger screens using min-width. It’s more future-proof and improves 
+//   performance.
+  
+
+// ✅ Q8) Explain how @keyframes works when creating animations and transitions.
+// Answer:
+// @keyframes defines steps in an animation sequence.
+
+// @keyframes slideIn {
+//     0% {
+//       transform: translateX(-100%);
+//     }
+//     100% {
+//       transform: translateX(0);
+//     }
+//   }
+  
+//   .box {
+//     animation: slideIn 0.5s ease-in-out;
+//   }
+
+//   Keyframes control intermediate steps of an animation.
+//   You can use percentages (0%, 100%) or from/to.
+  
+
+//   Follow-up: Difference between animation and transition?
+//   transition: Used for simple animations between two states (hover, click).
+//   animation: Used for complex or looping animations with multiple steps.
+  
+
+
+// ✅ Q9) What are viewport meta tags, and how do they affect webpage scaling?
+// Answer:
+// Viewport meta tags control how your page is scaled and displayed on different devices.
+
+// Example:
+/* <meta name="viewport" content="width=device-width, initial-scale=1.0"> */
+
+/* width=device-width: Matches screen’s width
+   initial-scale=1.0: Prevents auto zoom
+
+Follow-up: What happens if we don’t use it?
+👉 On mobile devices, the page may zoom out to fit the desktop layout, breaking responsiveness. */
+
+
+
+// ✅ Q10) How do CSS preprocessors like SASS and LESS improve CSS development?
+// Answer:
+
+// They add programming-like features to CSS, such as:
+// Variables ($primary-color)
+// Nesting
+// Mixins (reusable snippets)
+// Functions
+// Partials & imports
+
+
+// ==> Benefits:
+// Better code reuse
+// Cleaner, modular code
+// Easier maintenance
+// DRY principle
+
+// Example (SASS):
+
+// $primary-color: #3498db;
+// .button {
+//   background: $primary-color;
+//   &:hover {
+//     background: darken($primary-color, 10%);
+//   }
+// }
+
+// Follow-up: How do you compile SASS to CSS?
+// 👉 Use tools like Node-SASS, Dart-SASS, or build tools like Webpack, Vite, etc.
