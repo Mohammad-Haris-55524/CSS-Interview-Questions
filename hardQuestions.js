@@ -118,3 +118,134 @@
   
 
 
+// Q3) Transitions vs Animations in CSS
+// Answer:
+// | Feature          | **CSS Transitions**                 | **CSS Animations**                      |
+// | ---------------- | ----------------------------------- | --------------------------------------- |
+// | **Triggered by** | A change in property (hover, focus) | Can start automatically or be triggered |
+// | **Control**      | Limited to start → end states       | Allows multiple keyframes/stages        |
+// | **Keyframes**    | Not required                        | Required (`@keyframes`)                 |
+// | **Repeat**       | Can't loop                          | Can loop (`infinite`, `alternate`)      |
+// | **Complexity**   | Simple interactions                 | Complex sequences                       |
+
+// ✅ Transition Example:
+
+// button {
+//     transition: background-color 0.3s ease;
+//   }
+//   button:hover {
+//     background-color: red;
+//   }
+  
+// ✅ Animation Example:
+// @keyframes slideIn {
+//     from {
+//       transform: translateX(-100%);
+//     }
+//     to {
+//       transform: translateX(0);
+//     }
+//   }
+//   .box {
+//     animation: slideIn 1s ease-out forwards;
+//   }
+  
+
+
+// Follow-up Questions:
+
+// ✅ Q: Can we combine transitions and animations?
+// A: Yes, for different effects. For example, an animation on load and transition on hover.
+
+// ✅ Q: How to stop or pause an animation?
+// A: Use animation-play-state: paused; to pause it.
+
+
+
+// Q4) What is the clamp() function in CSS?
+
+// Answer:
+
+// The clamp() function provides a way to set responsive values by specifying:
+// a minimum
+// a preferred (scalable) value
+// a maximum
+
+// ✅ Syntax:
+// font-size: clamp(1rem, 2vw, 2rem);
+
+// This means:
+// Minimum font size = 1rem
+// Preferred = 2vw (responsive to viewport)
+// Maximum = 2rem
+// It will grow/shrink with screen size but stay between 1rem and 2rem.
+
+// Use Cases:
+// Fluid typography
+// Responsive paddings/margins
+// Adaptive layout widths
+
+// ✅ Example with padding:
+// padding: clamp(10px, 2vw, 30px);
+
+
+
+// Follow-up Questions:
+
+// ✅ Q: Why is clamp() better than media queries for font-size?
+// A: It simplifies responsiveness by removing the need for breakpoints. It provides a fluid range within boundaries.
+
+// ✅ Q: Can we use calc() inside clamp()?
+// A: Yes:
+// font-size: clamp(1rem, calc(1rem + 1vw), 2rem);
+
+
+
+// Q5) How are custom properties (CSS variables) created and used in stylesheets?
+// Answer:
+
+// CSS variables (also known as custom properties) allow you to store values in reusable variables, enhancing maintainability and theme 
+// control.
+
+// ✅ Define a Variable:
+// :root {
+//     --primary-color: #3498db;
+//     --padding: 1rem;
+//   }
+// :root means global scope (entire document).
+
+// ✅ Use the Variable:
+// button {
+//     background-color: var(--primary-color);
+//     padding: var(--padding);
+//   }
+  
+// ✅ Override Locally:
+// .dark-theme {
+//     --primary-color: #222;
+//   }
+  
+// This enables dynamic theming!
+
+// Benefits:
+// Better code readability
+// Easier theming
+// Live updates with JavaScript
+
+
+// Follow-up Questions:
+
+// ✅ Q: Can we use fallback values in var()?
+// A: Yes:
+// color: var(--heading-color, black); /* fallback if undefined */
+
+// ✅ Q: Can variables be updated dynamically?
+// A: Yes, using JavaScript:
+// document.documentElement.style.setProperty('--primary-color', 'red');
+
+// ✅ Q: Are variables scoped?
+// A: Yes, variables can be scoped to a selector, and will inherit from parent if not defined.
+
+
+
+
