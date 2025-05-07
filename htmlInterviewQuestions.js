@@ -112,3 +112,97 @@
 // Follow-up:
 // Q: What’s the difference between GET and POST methods?
 // A: GET appends data to the URL; POST sends it in the request body (more secure).
+
+
+// 🔹 8. What is the difference between <script> and <noscript>?
+// Answer:
+
+// <script> is used to include JavaScript.
+// <noscript> is shown when JavaScript is disabled.
+
+// Example:
+{/* <script>
+  alert("Hello!");
+</script>
+<noscript>Your browser does not support JavaScript.</noscript> */}
+
+
+// Follow-up:
+// Q: Why is <noscript> important?
+// A: It ensures fallback content is available for users without JavaScript.
+
+
+
+// 🔹 9. How does the <meta> tag work in HTML?
+// Answer:
+// The <meta> tag provides metadata like charset, author, viewport, etc.
+
+// Example:
+// <meta charset="UTF-8" />
+{/* <meta name="viewport" content="width=device-width, initial-scale=1.0" /> */}
+
+
+// Follow-up:
+// Q: Why is the viewport meta tag important?
+// A: It ensures responsive layout on different screen sizes.
+
+
+
+// 🔹 10. What is the difference between inline, block, and inline-block elements?
+// Answer:
+
+// Block: Takes full width, starts on new line (div, p)
+// Inline: Takes only required width, doesn’t start a new line (span, a)
+// Inline-block: Behaves like inline but supports block properties (width, height)
+
+// Example:
+{/* <span style="display: block;">Block</span>
+<span style="display: inline;">Inline</span>
+<span style="display: inline-block; width: 100px;">Inline-block</span> */}
+
+
+// Follow-up:
+// Q: Can you change the display of an element using CSS?
+// A: Yes, with the display property.
+
+
+
+// 🔹 11. What is the role of the <link> tag?
+// Answer:
+// It links external resources like CSS files.
+
+// Example:
+{/* <link rel="stylesheet" href="styles.css" /> */}
+
+
+// Follow-up:
+// Q: Is <link> self-closing?
+// A: Yes, it is a void (self-closing) element.
+
+
+
+// 🔹 12. What is the difference between relative and absolute URLs?
+// Answer:
+
+// Relative URL: Relative to the current path (/images/cat.jpg)
+// Absolute URL: Full path including domain (https://example.com/images/cat.jpg)
+
+
+// Follow-up:
+// Q: Which one is better for internal links?
+// A: Relative URLs are better for internal navigation.
+
+
+
+// 🔹 13. What is accessibility in HTML and how do you improve it?
+// Answer:
+// Accessibility means making web content usable for everyone, including people with disabilities. Use semantic tags, alt text, and ARIA 
+// attributes.
+
+// Example:
+{/* <button aria-label="Close">X</button> */}
+
+
+// Follow-up:
+// Q: What does aria-label do?
+// A: It provides a label for screen readers.
