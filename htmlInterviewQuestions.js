@@ -206,3 +206,72 @@
 // Follow-up:
 // Q: What does aria-label do?
 // A: It provides a label for screen readers.
+
+
+
+// 🔹 14. How do you embed media in HTML?
+// Answer:
+// You can use <img>, <audio>, <video>, or <iframe>.
+
+// Example (video):
+{/* <video controls>
+  <source src="movie.mp4" type="video/mp4" />
+</video> */}
+
+
+// Follow-up:
+// Q: What does the controls attribute do?
+// A: It adds play, pause, volume controls to the video/audio player.
+
+
+
+// 🔹 15. What is the difference between <strong> and <b>?
+// Answer:
+// <strong> indicates importance (semantic).
+// <b> is just for bold styling (non-semantic).
+
+
+// Follow-up:
+// Q: Which one should you prefer and why?
+// A: Prefer <strong> for accessibility and semantic meaning.
+
+
+
+// 🔹 16. Are all semantic tags are block line ?
+// No, not all semantic HTML tags are block-level elements.
+// However, most semantic tags like <header>, <section>, <article>, <nav>, and <footer> are block-level.
+
+// But semantic inline elements also exist, such as:
+// ✅ Semantic Block-level Tags (most common):
+// | Tag         | Description                      |
+// | ----------- | -------------------------------- |
+// | `<header>`  | Introductory content             |
+// | `<nav>`     | Navigation links                 |
+// | `<section>` | Thematic grouping of content     |
+// | `<article>` | Independent content (e.g., blog) |
+// | `<aside>`   | Sidebar or tangential content    |
+// | `<footer>`  | Footer content                   |
+// | `<main>`    | Main page content                |
+// | `<figure>`  | Media content with caption       |
+
+
+// ✅ Semantic Inline Tags:
+// | Tag      | Description                     |
+// | -------- | ------------------------------- |
+// | `<time>` | Represents date or time         |
+// | `<mark>` | Highlights or marks text        |
+// | `<abbr>` | Abbreviation or acronym         |
+// | `<cite>` | Citation or reference           |
+// | `<dfn>`  | Defines a term                  |
+// | `<code>` | Code snippet                    |
+// | `<kbd>`  | Keyboard input                  |
+// | `<samp>` | Sample output                   |
+// | `<var>`  | Variable in programming context |
+
+
+// 🔹 Follow-up Question:
+// Q: How can you check whether an element is block or inline?
+// Answer:
+
+// Use browser DevTools → inspect the element → check the display style.
+// By default, block elements take full width and break to the next line; inline elements do not.
