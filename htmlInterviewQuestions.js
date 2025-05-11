@@ -2,7 +2,8 @@
 
 // 🔹 1. What is HTML and why is it used?
 // Answer:
-// HTML (HyperText Markup Language) is the standard language for creating the structure of web pages. It defines elements like headings, paragraphs, images, links, and forms.
+// HTML (HyperText Markup Language) is the standard language for creating the structure of web pages. It defines elements like headings, 
+// paragraphs, images, links, and forms.
 
 // Example:
 // <!DOCTYPE html>
@@ -18,7 +19,31 @@
 // Q: What is the difference between HTML and CSS?
 // A: HTML defines the structure of the webpage, while CSS defines the styling and layout.
 
+// _____________________________________________________________________________________________________________________________________
 
+// 🔹 1B. What does HTML stand for? Why is it called a markup language? What does markup mean?
+// Answer:
+// HTML stands for HyperText Markup Language.
+
+// HyperText refers to text that contains links (hyperlinks) to other content. It allows users to navigate between web pages or sections 
+// of the same page.
+
+// Markup Language means it's a system for annotating or "marking up" content to define its structure and meaning.
+// Markup refers to the tags used to identify and organize parts of the content, like headings, paragraphs, lists, links, etc.
+
+// For example:
+//  <p>This is a paragraph.</p>
+// Here, <p> is a markup tag that tells the browser to treat the content as a paragraph.
+
+// ✅ HTML doesn’t describe how content looks (that’s CSS’s job) — it tells what each piece of content is. 
+
+
+// Follow-up Question:
+// Q: Is HTML a programming language?
+// A: No, HTML is not a programming language. It's a markup language because it doesn’t perform logical operations or computations. 
+// It structures content rather than manipulates data.
+
+// _____________________________________________________________________________________________________________________________________
 
 // 🔹 2. What are semantic tags in HTML?
 // Answer:
@@ -34,7 +59,7 @@
 // Q: Why use semantic tags?
 // A: They improve accessibility, SEO, and code readability.
 
-
+// _____________________________________________________________________________________________________________________________________
 
 // 🔹 3. What is the difference between <div> and <span>?
 // Answer:
@@ -50,7 +75,7 @@
 // Q: Can you style both using CSS?
 // A: Yes, both can be styled with CSS using class or id selectors.
 
-
+// _____________________________________________________________________________________________________________________________________
 
 // 🔹 4. What are attributes in HTML?
 // Answer:
@@ -59,12 +84,11 @@
 // Example:
 // {/* <img src="cat.jpg" alt="A cute cat" /> */}
 
-
 // Follow-up:
 // Q: What’s the use of the alt attribute in images?
 // A: It provides alternative text for accessibility and when the image fails to load.
 
-
+// _____________________________________________________________________________________________________________________________________
 
 // 🔹 5. What is the difference between id and class?
 // Answer:
@@ -76,27 +100,42 @@
 {/* <div id="header">Header</div>
 <p class="text">Paragraph</p> */}
 
-
 // Follow-up:
 // Q: Can you use multiple classes on one element?
 // A: Yes. Example: <div class="box large red"></div>
 
+// _____________________________________________________________________________________________________________________________________
 
-
-// 🔹 6. What is the purpose of the <!DOCTYPE html> declaration?
+// 🔹 6. What is the purpose of the <!DOCTYPE html> declaration? Why do we use it? What will happen if we remove it?
 // Answer:
 // It defines the document type and version of HTML being used (HTML5 in this case). It helps browsers render the page correctly.
+// The <!DOCTYPE html> declaration is used to tell the browser that the page is written in HTML5 — the latest version of HTML.
+// It must appear at the very top of the HTML document, before the <html> tag.
+// It enables standards mode in browsers so that they render the page according to modern web standards.
+
+// If you remove it:
+// Browsers may switch to quirks mode, which tries to mimic old browser behavior and can cause inconsistent rendering across different 
+// browsers.
+// Layouts may break, especially with CSS positioning and box models.
 
 // Example:
 // <!DOCTYPE html>
-// <html>...</html>
-
+// <html>
+//   <head>
+//     <title>My Page</title>
+//   </head>
+//   <body>
+//     <p>Hello World!</p>
+//   </body>
+// </html>
 
 // Follow-up:
 // Q: Is <!DOCTYPE html> case-sensitive?
 // A: No, it's not case-sensitive.
+// Q: Is <!DOCTYPE> a tag or an element?
+// A: It's neither a tag nor an HTML element. It’s a declaration that instructs the browser how to interpret the HTML.
 
-
+// _____________________________________________________________________________________________________________________________________
 
 // 🔹 7. How are forms handled in HTML?
 // Answer:
@@ -108,11 +147,11 @@
   <button type="submit">Submit</button>
 </form> */}
 
-
 // Follow-up:
 // Q: What’s the difference between GET and POST methods?
 // A: GET appends data to the URL; POST sends it in the request body (more secure).
 
+// _____________________________________________________________________________________________________________________________________
 
 // 🔹 8. What is the difference between <script> and <noscript>?
 // Answer:
@@ -131,7 +170,7 @@
 // Q: Why is <noscript> important?
 // A: It ensures fallback content is available for users without JavaScript.
 
-
+// _____________________________________________________________________________________________________________________________________
 
 // 🔹 9. How does the <meta> tag work in HTML?
 // Answer:
@@ -146,7 +185,7 @@
 // Q: Why is the viewport meta tag important?
 // A: It ensures responsive layout on different screen sizes.
 
-
+// _____________________________________________________________________________________________________________________________________
 
 // 🔹 10. What is the difference between inline, block, and inline-block elements?
 // Answer:
@@ -165,7 +204,7 @@
 // Q: Can you change the display of an element using CSS?
 // A: Yes, with the display property.
 
-
+// _____________________________________________________________________________________________________________________________________
 
 // 🔹 11. What is the role of the <link> tag?
 // Answer:
@@ -179,7 +218,7 @@
 // Q: Is <link> self-closing?
 // A: Yes, it is a void (self-closing) element.
 
-
+// _____________________________________________________________________________________________________________________________________
 
 // 🔹 12. What is the difference between relative and absolute URLs?
 // Answer:
@@ -192,7 +231,7 @@
 // Q: Which one is better for internal links?
 // A: Relative URLs are better for internal navigation.
 
-
+// _____________________________________________________________________________________________________________________________________
 
 // 🔹 13. What is accessibility in HTML and how do you improve it?
 // Answer:
@@ -207,7 +246,7 @@
 // Q: What does aria-label do?
 // A: It provides a label for screen readers.
 
-
+// _____________________________________________________________________________________________________________________________________
 
 // 🔹 14. How do you embed media in HTML?
 // Answer:
@@ -217,7 +256,6 @@
 {/* <video controls>
   <source src="movie.mp4" type="video/mp4" />
 </video> */}
-
 
 // Follow-up:
 // Q: What does the controls attribute do?
@@ -230,12 +268,11 @@
 // <strong> indicates importance (semantic).
 // <b> is just for bold styling (non-semantic).
 
-
 // Follow-up:
 // Q: Which one should you prefer and why?
 // A: Prefer <strong> for accessibility and semantic meaning.
 
-
+// _____________________________________________________________________________________________________________________________________
 
 // 🔹 16. Are all semantic tags are block line ?
 // No, not all semantic HTML tags are block-level elements.
@@ -275,6 +312,66 @@
 
 // Use browser DevTools → inspect the element → check the display style.
 // By default, block elements take full width and break to the next line; inline elements do not.
+
+// _____________________________________________________________________________________________________________________________________
+
+// 🔹 17. Define the list types in HTML. Differentiate between an Ordered List and an Unordered List.
+// Answer:
+// HTML provides three types of lists:
+
+// Ordered List (<ol>) – Displays items in a specific sequence (1, 2, 3 or a, b, c).
+// Unordered List (<ul>) – Displays items with bullet points.
+// Description List (<dl>) – Used for key-value pairs like terms and definitions.
+
+// Ordered vs Unordered:
+// | Feature     | Ordered List `<ol>`        | Unordered List `<ul>`       |
+// | ----------- | -------------------------- | --------------------------- |
+// | Use case    | Steps, rankings, sequences | Grouped items without order |
+// | Marker type | Numbers, letters           | Dots, circles, squares      |
+// | Example tag | `<ol><li>Item</li></ol>`   | `<ul><li>Item</li></ul>`    |
+
+// EXAMPLE: 
+{/* <ol>
+  <li>Wake up</li>
+  <li>Brush teeth</li>
+  <li>Code</li>
+</ol>
+
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+</ul> */}
+
+// Follow-up Question:
+// Q: Can we change the numbering style of an ordered list?
+// A: Yes, using the type attribute or with CSS:
+
+{/* <ol type="A"> <!-- Outputs A, B, C -->
+<ol type="i"> <!-- Outputs i, ii, iii --> */}
+
+// _____________________________________________________________________________________________________________________________________
+
+// 🔹 18. What is the difference between HTML and CSS?
+// Answer:
+// | Feature    | HTML                         | CSS                                       |
+// | ---------- | ---------------------------- | ----------------------------------------- |
+// | Stands for | HyperText Markup Language    | Cascading Style Sheets                    |
+// | Purpose    | Structures the content       | Styles the content                        |
+// | Role       | Builds the skeleton          | Adds design (colors, layout, fonts, etc.) |
+// | Example    | `<p>This is a paragraph</p>` | `p { color: blue; font-size: 18px; }`     |
+
+
+// They work together:
+// HTML defines what the content is (e.g., heading, image).
+// CSS defines how it looks (e.g., color, spacing, positioning).
+
+// Follow-up Question:
+// Q: Can CSS be added inside HTML?
+// A: Yes, in three ways:
+// Inline: <p style="color:red;">
+// Internal: In <style> tags in the <head>
+// External: Linking a .css file using <link></link>
 
 
 // ----------------------------------------------- DETAIL LEARNING ABOUT <META> TAG IN HTML -------------------------------------------- 
