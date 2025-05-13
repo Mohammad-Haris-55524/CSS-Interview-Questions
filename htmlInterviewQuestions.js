@@ -374,6 +374,59 @@
 // External: Linking a .css file using <link></link>
 
 
+// _____________________________________________________________________________________________________________________________________
+
+// 🔹 19. Are HTML tags and elements the same thing?
+// Answer:
+// Not exactly. They are related but not the same.
+// A tag is just the markup keyword inside angle brackets:
+// <p> or </p> are tags.
+
+// An element includes:
+// Opening tag,
+// Content,
+// Closing tag.
+
+// Example:
+{/* <p>This is a paragraph.</p> */}
+{/* <p> is the tag
+
+This is a paragraph. is the content
+The entire thing is the element
+
+Note: Some elements are self-closing and don’t have content.
+
+Follow-up Question:
+Q: Are elements always visible on the screen?
+A: No. Some elements like <meta>, <title>, or <script> work behind the scenes and don’t produce visible output.*/}
+
+
+// _____________________________________________________________________________________________________________________________________
+
+// 🔹 20. What are void elements in HTML?
+// Answer:
+// Void elements (also called self-closing elements) are HTML elements that do not have any content or a closing tag. They’re used to 
+// insert items that don’t need text inside them.
+
+// Examples:
+{/* <img src="image.jpg" alt="photo" />
+<br />
+<hr />
+<input type="text" />
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="style.css" /> */}
+
+// They only use the opening tag.
+// Some developers add a trailing slash (<br />), but in HTML5 it’s optional.
+
+// Follow-up Question:
+// Q: What happens if we add a closing tag to a void element?
+// A: It won’t break the page, but it's invalid in HTML5 and can cause rendering or validation issues.
+
+
+
+
+
 // ----------------------------------------------- DETAIL LEARNING ABOUT <META> TAG IN HTML -------------------------------------------- 
 // ✅ What is the <meta> tag in HTML?
 // The <meta> tag is used in the <head> section of an HTML document to provide metadata—information about the web page. This data is not 
