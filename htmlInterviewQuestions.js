@@ -424,7 +424,154 @@ A: No. Some elements like <meta>, <title>, or <script> work behind the scenes an
 // A: It won’t break the page, but it's invalid in HTML5 and can cause rendering or validation issues.
 
 
+// _____________________________________________________________________________________________________________________________________
 
+// ✅ 21) What are Relative and Absolute Links in HTML? Also, how to open a link in a new tab?
+// 🔷 Absolute Link:
+// An absolute link provides the full path (URL) to a resource, including protocol (http/https) and domain name.
+// <a href="https://www.google.com">Visit Google</a>
+
+// It links to external websites.
+// Works from any location.
+
+// 🔷 Relative Link:
+// A relative link points to a file within your own project or website, based on the current file’s location.
+// <a href="about.html">About Us</a>
+
+// It links to internal files or pages.
+// The browser builds the full URL based on the current location.
+
+// 🔷 Open Link in a New Tab:
+// Use the target="_blank" attribute
+// <a href="https://www.google.com" target="_blank">Open in New Tab</a>
+
+// You can also add rel="noopener noreferrer" for security reasons to prevent the new page from accessing the previous one via window.opener.
+// <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">Secure New Tab</a>
+
+
+// Follow-up Questions:
+
+// Q: What’s the risk of using target="_blank" without rel="noopener noreferrer"?
+// A: The new tab can potentially access the original page via window.opener, allowing phishing attacks. Adding rel="noopener" prevents 
+// this.
+
+// Q: Can I use a relative link to navigate to an image or file?
+// A: Yes. For example:
+// <a href="images/photo.jpg">View Photo</a>
+
+// _____________________________________________________________________________________________________________________________________
+
+// ✅ 22) How to navigate on the page in HTML?
+// You can navigate within the same page using anchor links and id attributes.
+
+// 🔷 Step-by-step:
+// 1) Give a section an id:
+// <section id="contact">Contact Us</section>
+
+// 2) Create a link to that section:
+// <a href="#contact">Go to Contact Section</a>
+// When the user clicks, the page scrolls to the element with id="contact".
+
+// 🔷 Navigation Across Pages:
+// <a href="services.html">Services Page</a>
+
+// 🔷 Navigation with Smooth Scrolling (CSS):
+// html {
+//   scroll-behavior: smooth;
+// }
+
+
+// Follow-up Questions:
+
+// Q: Can we use JavaScript for navigation too?
+// A: Yes, you can use window.location.href = "about.html" to navigate or scrollIntoView() for smooth scrolling within a page.
+
+// Q: What happens if I use an anchor with no matching ID?
+// A: It won’t scroll anywhere — it just jumps to the top of the page.
+
+// _____________________________________________________________________________________________________________________________________
+
+
+// ✅ 23) What is the latest HTML version? What new features/tags were introduced?
+// 🔷 Latest Version:
+// The latest official version is HTML5, released in 2014 but continuously improved.
+
+// 🔷 New Features Introduced in HTML5:
+// 🧱 New Semantic Elements (Better Structure):
+
+// | Tag         | Purpose                      |
+// | ----------- | ---------------------------- |
+// | `<header>`  | Page or section heading      |
+// | `<footer>`  | Footer content               |
+// | `<nav>`     | Navigation menus             |
+// | `<article>` | Self-contained content       |
+// | `<section>` | Thematic grouping of content |
+// | `<aside>`   | Sidebar or related content   |
+// | `<main>`    | Main content area            |
+
+
+// 🎬 Multimedia Support:
+{/* <video src="movie.mp4" controls></video>
+<audio src="song.mp3" controls></audio> */}
+
+// 🧪 New Form Input Types:
+{/* <input type="email" />
+<input type="date" />
+<input type="range" />
+<input type="color" /> */}
+
+
+// 🗃️ Other APIs & Features:
+// Canvas API – for drawing graphics.
+// Geolocation API
+// LocalStorage & SessionStorage
+// Drag and Drop API
+
+// Follow-up Questions:
+
+// Q: Why are semantic tags important?
+// A: They improve accessibility, SEO, and make the code easier to understand. Search engines and screen readers rely on these tags to understand content structure.
+
+// Q: Is HTML5 backward compatible?
+// A: Yes, most older tags still work. Browsers ignore unknown tags gracefully.
+
+
+// _____________________________________________________________________________________________________________________________________
+
+// ✅ 24) What is the purpose of the <iframe> tag?
+// 🔷 Definition:
+// The <iframe> (Inline Frame) tag is used to embed another HTML document or web page inside the current page.
+
+// 🔷 Example:
+{/* <iframe src="https://www.wikipedia.org" width="600" height="400"></iframe> */}
+
+
+// 🔷 Use Cases:
+// Embedding YouTube videos
+// Showing external content (maps, documents, charts)
+// Embedding ads or analytics dashboards
+// Showing other websites or microsites
+
+// 🔷 Security Consideration:
+// Always be careful while embedding unknown sources — they can pose security or performance issues.
+
+// 🔷 Control Options (Attributes):
+// | Attribute         | Purpose                  |
+// | ----------------- | ------------------------ |
+// | `src`             | URL of the page to embed |
+// | `width`/`height`  | Size of the iframe       |
+// | `allowfullscreen` | Allows full-screen video |
+// | `loading="lazy"`  | Loads iframe when needed |
+// | `sandbox`         | Restricts capabilities   |
+
+// Q: Can we use iframe to load another part of our own website?
+// A: Yes, you can load internal pages, but it’s not recommended for navigation. Better to use routing/navigation.
+
+// Q: What does the sandbox attribute do?
+// A: It isolates the iframe from the parent page — disables forms, scripts, and plugins unless you explicitly allow them.
+
+// Example:
+{/* <iframe src="https://example.com" sandbox></iframe> */}
 
 
 // ----------------------------------------------- DETAIL LEARNING ABOUT <META> TAG IN HTML -------------------------------------------- 
