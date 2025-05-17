@@ -149,7 +149,8 @@
 // You can think of it as “the top-level container for your whole web page”.
 
 // 🔶 Why do we use :root?
-// We mostly use :root to define CSS variables (also called custom properties) so that we can reuse values like colors, font sizes, spacing, etc., throughout our CSS.
+// We mostly use :root to define CSS variables (also called custom properties) so that we can reuse values like colors, font sizes, 
+// spacing, etc., throughout our CSS.
 
 // ✅ Example:
 // :root {
