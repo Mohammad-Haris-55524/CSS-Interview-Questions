@@ -308,3 +308,158 @@ Follow-up: What happens if we don’t use it?
 
 // Follow-up: How do you compile SASS to CSS?
 // 👉 Use tools like Node-SASS, Dart-SASS, or build tools like Webpack, Vite, etc.
+
+
+// ✅ Q11) Explain the difference between display: none, visibility: hidden, and opacity: 0 in CSS
+// These three CSS properties hide content, but they work differently in terms of layout, interactivity, and space occupied on the page.
+
+// 🟢 1. display: none
+// Removes the element completely from the layout.
+// The element takes up no space in the DOM visually.
+// It is not clickable and not accessible via screen readers.
+
+// .box {
+//   display: none;
+// }
+// 📌 It's like the element doesn’t exist at all in the layout.
+
+
+// 🟡 2. visibility: hidden
+// The element is hidden, but it still occupies space in the layout.
+// It is not clickable, not visible, but still exists in the DOM flow.
+
+// .box {
+//   visibility: hidden;
+// }
+// 📌 Think of it as making the element invisible but keeping its footprint in the layout.
+
+
+// 🔵 3. opacity: 0
+// The element is fully transparent but still visible to screen readers, occupies space, and can still be clicked or focused.
+// .box {
+//   opacity: 0;
+// }
+// 📌 It becomes invisible to the eye, but functionally still active.
+
+// 🔁 Quick Comparison Table:
+// | Property             | Visible? | Takes Space? | Clickable? | In Layout? |
+// | -------------------- | -------- | ------------ | ---------- | ---------- |
+// | `display: none`      | ❌        | ❌            | ❌          | ❌          |
+// | `visibility: hidden` | ❌        | ✅            | ❌          | ✅          |
+// | `opacity: 0`         | ❌        | ✅            | ✅          | ✅          |
+
+// 🔄 Follow-up Questions:
+// ✅ Q: Can opacity: 0 be used to create transitions or animations?
+// A: Yes! opacity is animatable, unlike display or visibility.
+// .box {
+//   transition: opacity 0.5s ease;
+// }
+
+// ✅ Q: How would you animate something using display: none?
+// A: You can’t animate display. Instead, animate opacity or transform, and then use JavaScript or setTimeout to set display: none after the animation completes.
+
+// ✅ Q: When should you use visibility: hidden over display: none?
+// A: Use visibility: hidden when you want to preserve layout spacing, but hide content (e.g., in tab interfaces).
+
+
+// ✅ Q12) Explain the concept of positions in CSS
+// The position property controls how an element is positioned in the document. It defines how it behaves relative to its parent or the 
+// viewport.
+
+// 🔵 1. static (default)
+// Every element by default is static.
+// It follows the normal document flow.
+// top, right, bottom, left, and z-index don’t work.
+// .box {
+//   position: static;
+// }
+
+// 🔶 2. relative
+// Keeps the element in its original space, but allows you to move it relative to itself.
+// It doesn't affect other elements' positions.
+// Commonly used as a parent for absolutely positioned children.
+// .box {
+//   position: relative;
+//   top: 10px; /* moves the element down, visually only */
+// }
+
+
+// 🔴 3. absolute
+// Removes the element from the normal document flow.
+// Positioned relative to the nearest ancestor with position: relative | absolute | fixed | sticky.
+// If no such ancestor, it is positioned relative to <html> / viewport.
+// .parent {
+//   position: relative;
+// }
+// .child {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+// }
+// 📌 Very important: Absolute child needs a relative (or positioned) parent to behave predictably.
+
+
+// 🟢 4. fixed
+// Positions the element relative to the viewport (browser window).
+// It stays fixed even during scrolling.
+// Useful for sticky navbars, floating buttons, etc.
+
+// .box {
+//   position: fixed;
+//   bottom: 20px;
+//   right: 20px;
+// }
+// 📌 Doesn't move with page scroll.
+
+
+// 🟡 5. sticky
+// A hybrid between relative and fixed.
+// Behaves like relative until it reaches a defined offset, then behaves like fixed.
+// .header {
+//   position: sticky;
+//   top: 0;
+// }
+// 📌 Used for sticky headers and sections. Needs a scrolling container with a height.
+
+
+// 👨‍🏫 Explanation of “absolute parent is relative or HTML” and other parent-child scenarios:
+// | Child Position | Behavior Depends On Parent With Position: | Explanation                                                                                                            |
+// | -------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+// | `absolute`     | `relative`, `absolute`, `fixed`, `sticky` | It uses the **nearest positioned ancestor**. If none found, it positions itself relative to the **`<html>`/viewport**. |
+// | `fixed`        | N/A (always viewport)                     | Independent of parent. Always uses **viewport** as reference.                                                          |
+// | `sticky`       | Depends on scrollable parent              | Needs a parent with `overflow` context and enough height to scroll.                                                    |
+
+
+// 💡 Real-Life Example for Clarification:
+{/* <div class="container">
+  <div class="box"></div>
+</div>
+
+.container {
+  position: relative;
+  height: 300px;
+}
+
+.box {
+  position: absolute;
+  top: 0;
+  left: 0;
+} */}
+// ✅ In this case, .box is positioned relative to .container, not <body> or <html>, because .container is relative.
+
+// 🔁 Follow-up Questions:
+// ✅ Q: Can we nest multiple absolutely positioned elements?
+// A: Yes, each will look for the closest positioned parent. Nesting must be done carefully to avoid layout confusion.
+
+// ✅ Q: What's the difference between fixed and sticky?
+// A:
+// fixed: Always sticks to the viewport, even when you scroll.
+// sticky: Behaves like relative until it hits a threshold, then sticks temporarily.
+
+// ✅ Q: Can sticky work without scrollable parents?
+// A: No. It needs enough content in the parent or page to scroll, otherwise sticky acts like relative.
+
+// ✅ Q: What happens if no parent has a position and the child is absolute?
+// A: The child will be positioned relative to the HTML document (viewport).
+
+
