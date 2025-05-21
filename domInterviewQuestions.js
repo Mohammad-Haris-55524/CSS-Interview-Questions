@@ -174,3 +174,175 @@ btn.addEventListener('click', function(e) {
 // How would you add an event that only triggers once?
 // Use addEventListener with the { once: true } option or remove the listener in the handler function.
 
+
+// 6. What is the difference between innerHTML, innerText, and textContent?
+// Answer:
+// These properties all deal with element content but behave differently:
+// innerHTML:
+// Gets/sets the HTML content including tags
+// Can be used to insert new HTML elements
+// Security risk if used with untrusted content (XSS vulnerability)
+// element.innerHTML = '<strong>Hello</strong> World';
+
+// innerText:
+// Gets/sets the rendered text content (what's visible)
+// Respects styling (won't return hidden text)
+// Triggers reflow (performance impact)
+
+// textContent:
+// Gets/sets all text content including hidden text
+// Doesn't parse HTML (safer than innerHTML)
+// Better performance than innerText
+
+// Comparison Example:
+<div id="example">
+  <span style="display: none">Hidden</span>Visible
+</div>
+
+
+// innerHTML: "<span style="display: none">Hidden</span>Visible"
+// innerText: "Visible"
+// textContent: "HiddenVisible"
+
+// Follow-up Questions:
+
+// When would you use innerHTML vs createElement?
+// Use innerHTML for simple static HTML, but createElement when you need to carefully construct elements or when dealing with user input 
+// (to prevent XSS).
+
+// What's the security concern with innerHTML?
+// If you insert user-provided content with innerHTML, malicious scripts in that content could execute. Always sanitize input or use 
+// textContent for untrusted content.
+
+
+// 7. How do you traverse the DOM?
+// Answer:
+// DOM traversal means moving between nodes in the DOM tree. Here are common methods:
+
+// Moving Up (Ancestors):
+// parentNode: Immediate parent
+// parentElement: Immediate parent element
+// closest('selector'): Nearest ancestor matching selector
+
+// Moving Down (Descendants):
+// childNodes: All child nodes (including text nodes)
+// children: Only child elements
+// firstChild/lastChild: First/last child node
+// firstElementChild/lastElementChild: First/last child element
+// querySelector/querySelectorAll: Find descendants matching selector
+
+// Moving Sideways (Siblings):
+// nextSibling/previousSibling: Next/previous node
+// nextElementSibling/previousElementSibling: Next/previous element
+
+// Example:
+// Start with an element
+const item = document.querySelector('.item');
+
+// Get parent
+const list = item.parentElement;
+
+// Get next sibling element
+const nextItem = item.nextElementSibling;
+
+// Find closest ancestor with class 'container'
+const container = item.closest('.container');
+
+
+// Follow-up Questions:
+
+// What's the difference between parentNode and parentElement?
+// parentNode returns any type of parent node, while parentElement returns only element nodes. They're usually the same except for document nodes.
+
+// How would you find all the images within a specific div?
+// divElement.querySelectorAll('img') or divElement.getElementsByTagName('img')
+
+
+// 8. What is the difference between attribute and property in DOM?
+// Answer:
+// Attributes and properties are related but distinct concepts:
+
+// Attributes:
+// Defined in HTML (visible in markup)
+// Accessed in JavaScript using:
+// getAttribute('name')
+// setAttribute('name', 'value')
+// hasAttribute('name')
+// removeAttribute('name')
+
+// Always strings
+// Represent initial values
+
+// Properties:
+// Exist on DOM objects (JavaScript)
+// Can be of any type (boolean, number, object, etc.)
+// Represent current values which can change
+
+// Key Differences:
+// Value Synchronization:
+// Some attributes sync with properties (id, class, etc.)
+// Some don't (value of an input - attribute is initial value, property is current)
+
+// Naming Differences:
+// class attribute vs className property
+// for attribute vs htmlFor property
+
+// Example:
+<input type="checkbox" id="toggle" checked></input>
+
+const input = document.getElementById('toggle');
+
+// Attribute (string)
+console.log(input.getAttribute('checked')); // ""
+
+// Property (boolean)
+console.log(input.checked); // true or false
+
+
+// Follow-up Questions:
+
+// When would you use attributes vs properties?
+// Use attributes for initial setup in HTML or when you specifically need the attribute value. Use properties for dynamic changes and current state.
+
+// How would you set a custom data attribute?
+// Use setAttribute('data-custom', 'value') or the dataset property: element.dataset.custom = 'value'
+
+
+// 9. What is event delegation and why is it useful?
+// Answer:
+// Event delegation is a technique where instead of adding event listeners to individual elements, you add a single event listener to a
+// parent element to handle events that occur on its descendants.
+
+// How it works:
+// Add event listener to a parent element
+// When event occurs, check event.target to see which child triggered it
+// Handle the event based on the target element
+
+// Example:
+document.getElementById('list').addEventListener('click', function(e) {
+  if(e.target.tagName === 'LI') {
+    console.log('List item clicked:', e.target.textContent);
+  }
+});
+
+// Benefits:
+// Performance: Fewer event listeners → less memory usage
+// Dynamic Content: Works for elements added later (no need to rebind)
+// Simplified Code: Single handler for many elements
+
+// Common Use Cases:
+// Lists or tables with many similar items
+// Dynamic content that's added/removed frequently
+// Groups of elements that share similar behavior
+
+
+// Follow-up Questions:
+
+// How would you handle events on elements within your target element?
+// Use closest() to find the nearest ancestor matching your selector:
+const button = e.target.closest('button');
+if(button) { /* handle button click */ }
+
+// What are the limitations of event delegation?
+// Events that don't bubble (like focus/blur) can't be delegated. Also, too much delegation can make code harder to maintain if not 
+// organized well.
