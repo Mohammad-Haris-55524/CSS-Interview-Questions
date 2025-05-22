@@ -346,3 +346,131 @@ if(button) { /* handle button click */ }
 // What are the limitations of event delegation?
 // Events that don't bubble (like focus/blur) can't be delegated. Also, too much delegation can make code harder to maintain if not 
 // organized well.
+
+
+
+// 10. How does the browser render the DOM and what are reflows and repaints?
+// Answer:
+// The browser rendering process involves several steps:
+// Parse HTML → Construct DOM tree
+// Parse CSS → Construct CSSOM tree
+// Combine DOM and CSSOM → Render tree
+// Layout (Reflow) → Calculate positions and dimensions
+// Paint → Fill in pixels
+// Composite → Layer management
+
+// Reflow (Layout):
+// Occurs when changes affect layout (size, position, content)
+// Triggers recalculating geometry of elements
+// Expensive operation that can cause performance issues
+
+// Repaint:
+// Occurs when visual changes don't affect layout (color, visibility)
+// Less expensive than reflow but still impacts performance
+
+// Common Causes of Reflow:
+// Adding/removing elements
+// Changing element dimensions or position
+// Changing font or text content
+// Resizing window
+// Accessing layout properties (offsetWidth, getComputedStyle)
+
+// Optimization Techniques:
+// Batch DOM changes (use DocumentFragment)
+// Avoid layout thrashing (don't interleave reads and writes)
+// Use position: absolute/fixed for animations
+// Hide elements during complex changes (display: none)
+// Debounce window resize handlers
+
+// Follow-up Questions:
+
+// What's the difference between display: none and visibility: hidden in terms of rendering?
+// display: none removes the element from layout (triggers reflow), while visibility: hidden just makes it invisible (only repaint).
+
+// How would you measure layout performance?
+// Use Chrome DevTools Performance panel to identify layout thrashing and excessive reflows. The Rendering panel can show paint 
+// rectangles and layout shift regions.
+
+
+// 11. What are data attributes and how do you use them?
+// Answer:
+// Data attributes (data-*) are custom attributes that allow you to store extra information in HTML elements without using non-standard 
+// attributes or DOM properties.
+
+// Syntax:
+<div id="user" data-user-id="1234" data-role="admin">...</div>
+
+// Accessing in JavaScript:
+// 1) Using dataset property:
+const user = document.getElementById('user');
+const userId = user.dataset.userId; // "1234"
+const role = user.dataset.role; // "admin"
+
+// 2) Using getAttribute:
+// const userId = user.getAttribute('data-user-id');
+
+// Key Features:
+// Always prefixed with data-
+// Can be accessed via dataset property (camelCase conversion)
+// Values are always strings (convert if needed)
+
+// Useful for:
+// Storing element-specific data
+// JavaScript configuration
+// Communication between CSS and JS
+
+// Best Practices:
+// Use for supplemental information, not essential content
+// Keep values simple (complex data should be in JavaScript)
+// Follow naming conventions (kebab-case in HTML, camelCase in JS)
+
+
+// Follow-up Questions:
+
+// How would you store and retrieve a JSON object in a data attribute?
+// Store as JSON string: data-config='{"key":"value"}' and parse with JSON.parse(element.dataset.config).
+
+// Can you use data attributes in CSS?
+// Yes, with the attr() function or as selectors: [data-role="admin"] { color: red; }.
+
+
+
+// 12. How do you handle dynamic content in the DOM?
+// Answer:
+// Dynamic content refers to elements added to the DOM after initial page load, typically via JavaScript. Here are approaches to 
+// handle it:
+// Event Delegation (as discussed earlier)
+// MutationObserver API:
+const observer = new MutationObserver(function(mutations) {
+  mutations.forEach(function(mutation) {
+    if(mutation.addedNodes.length) {
+      // Handle new nodes
+    }
+  });
+});
+observer.observe(document.body, { childList: true, subtree: true });
+
+// Manual Tracking:
+// Keep references to dynamically added elements
+// Add event listeners when creating elements
+
+// Framework Approaches:
+// React's virtual DOM
+// Angular's change detection
+// Vue's reactivity system
+
+// Best Practices:
+// Prefer event delegation for most cases
+// Use MutationObserver for complex scenarios
+// Clean up observers and event listeners when done
+// Consider using a framework for complex dynamic UIs
+
+// Follow-up Questions:
+
+// When would you use MutationObserver vs event delegation?
+// Use MutationObserver when you need to know when elements are added/removed regardless of events. Use event delegation when you only 
+// care about interactions with the elements.
+
+// How would you handle state for dynamic components?
+// For vanilla JS, you might use a state object and render functions. In frameworks, use their state management systems (React state, 
+// Vue data, etc).
