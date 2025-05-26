@@ -434,7 +434,6 @@ const role = user.dataset.role; // "admin"
 // Yes, with the attr() function or as selectors: [data-role="admin"] { color: red; }.
 
 
-
 // 12. How do you handle dynamic content in the DOM?
 // Answer:
 // Dynamic content refers to elements added to the DOM after initial page load, typically via JavaScript. Here are approaches to 
@@ -474,3 +473,174 @@ observer.observe(document.body, { childList: true, subtree: true });
 // How would you handle state for dynamic components?
 // For vanilla JS, you might use a state object and render functions. In frameworks, use their state management systems (React state, 
 // Vue data, etc).
+
+
+// 13. What is the difference between window, document, and screen in JavaScript?
+// Answer:
+// These are all important global objects but serve different purposes:
+
+// window:
+// Global object in browser JavaScript
+// Represents the browser window/tab
+
+// Contains:
+// Document (window.document)
+// Global variables and functions
+// Browser-related APIs (location, history, localStorage)
+// Timer functions (setTimeout)
+
+// document:
+// Represents the loaded web page (DOM)
+// Entry point to page content
+// Provides methods to access and modify DOM
+// Part of window (window.document)
+
+// screen:
+// Represents the user's screen/display
+
+// Contains information about:
+// Screen size (width, height)
+// Color depth
+// Pixel density
+// Rarely used in most web apps
+
+// Key Differences:
+// Scope: window > document (window contains document)
+
+// Purpose:
+// window - browser environment
+// document - page content
+// screen - physical display
+
+
+// Follow-up Questions:
+
+// How would you get the viewport size vs screen size?
+// Viewport: window.innerWidth/innerHeight
+// Screen: screen.width/screen.height
+
+// What's the difference between document and document.documentElement?
+// document is the root of the DOM, while document.documentElement refers to the <html> element.
+
+
+// 14. How do you optimize DOM manipulation for performance?
+// Answer:
+// DOM manipulation is often the performance bottleneck in web apps. Here are optimization strategies:
+
+// Minimize DOM Access:
+// Cache references to DOM elements
+// Avoid repeated queries in loops
+
+// Batch DOM Changes:
+// Use DocumentFragment for multiple additions
+// Make changes off-DOM then append (cloneNode)
+// Hide elements during complex changes (display: none)
+
+// Reduce Reflows:
+// Avoid interleaving reads and writes
+// Use absolute/fixed positioning for animations
+// Avoid table layouts (trigger more reflows)
+
+// Efficient Selectors:
+// Use IDs for fastest selection
+// Be specific with CSS selectors
+// Avoid universal selectors (*)
+
+// Event Optimization:
+// Use event delegation
+// Debounce scroll/resize handlers
+// Remove unused event listeners
+
+// Modern Techniques:
+// Use requestAnimationFrame for visual changes
+// Consider virtual DOM libraries for complex UIs
+// Use CSS transforms/opacity for animations (GPU accelerated)
+
+// Example of Batching:
+// Bad - multiple reflows
+for(let i = 0; i < 100; i++) {
+  const div = document.createElement('div');
+  document.body.appendChild(div);
+}
+
+// Good - single reflow
+const fragment = document.createDocumentFragment();
+for(let i = 0; i < 100; i++) {
+  const div = document.createElement('div');
+  fragment.appendChild(div);
+}
+document.body.appendChild(fragment);
+
+
+// Follow-up Questions:
+
+// What is layout thrashing and how do you avoid it?
+// Layout thrashing occurs when you interleave reads and writes to layout properties, forcing the browser to recalculate layout repeatedly. Avoid by batching reads first, then writes.
+
+// How would you animate an element efficiently?
+// Use CSS transforms/opacity with transform: translateX/Y/Z and requestAnimationFrame for JavaScript animations, as these are GPU accelerated.
+
+
+// 15. What are some security concerns when working with the DOM?
+// Answer:
+// DOM manipulation can introduce security vulnerabilities if not handled carefully:
+
+// Cross-Site Scripting (XSS):
+// Occurs when untrusted input is inserted into the DOM
+// Can execute malicious scripts in user's context
+
+// Prevention:
+// Use textContent instead of innerHTML for user input
+// Sanitize input with DOMPurify or similar
+// Use CSP (Content Security Policy) headers
+// Cross-Site Request Forgery (CSRF):
+// Tricks user into performing unwanted actions
+
+// Prevention:
+// Use anti-CSRF tokens
+// SameSite cookies
+// Event Listener Hijacking:
+// Malicious code can override event handlers
+
+// Prevention:
+// Use non-guessable event names for custom events
+// Be cautious with third-party scripts
+// Third-party Script Risks:
+// External scripts can access same DOM
+
+// Prevention:
+
+// Use subresource integrity
+// Sandbox iframes when possible
+// Insecure Direct Object References:
+// Exposing sensitive data in DOM attributes
+
+// Prevention:
+
+// Don't store sensitive data in client-side DOM
+// Use server-side checks for authorization
+
+// Best Practices:
+// Always sanitize user input before DOM insertion
+// Use CSP to restrict script sources
+// Keep libraries updated
+// Validate and escape data from servers
+// Be cautious with dynamic code evaluation (eval, new Function)
+
+// Follow-up Questions:
+
+// How would you safely render user-generated HTML content?
+// Use a dedicated sanitizer library like DOMPurify that removes dangerous elements/attributes while preserving safe markup.
+
+// What's the purpose of Content Security Policy (CSP) headers?
+// CSP restricts which resources can be loaded/executed, helping prevent XSS by whitelisting trusted sources for scripts, styles, etc.
+
+// Final Tips for Your Interview
+// Understand Fundamentals Deeply: Don't just memorize - understand why things work the way they do.
+
+// Relate to Real Projects: Be prepared to share how you've used these concepts in actual projects.
+// Explain Trade-offs: Show you understand there are multiple approaches by discussing pros and cons.
+// Browser Differences: Be aware of cross-browser considerations (though less critical today).
+// Performance Awareness: Interviewers love candidates who think about performance implications.
+// Security Mindset: Always consider security aspects in your answers.
+// Practice Coding: Be ready to write DOM manipulation code during the interview.
